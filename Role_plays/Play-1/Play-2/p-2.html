@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fundamental Duties</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      .conversation-cloud {
+        position: absolute;
+        border-radius: 35%;
+        padding: 20px;
+        font-size: 20px;
+        text-align: center;
+        border: 4px solid black;
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        display: inline-block;
+        max-width: 300px;
+      }
+      
+      .left-cloud {
+        background-color: #D9D9D9; /* Background color for left cloud */
+      }
+      
+      .right-cloud {
+        background-color: #B0E57C; /* Background color for right cloud */
+        max-height: 500px;
+      }
+      
+      .thought-bubble {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        background-color: white;
+        border: 4px solid black;
+        border-radius: 50%;
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  
+  <body style="background-color: #C4D4E7;">
+    <!-- Image (this is a placeholder for your role-play design) -->
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+          <div class="col-md-8">
+            <div class="card text-center p-4">
+                <div class="conversation-cloud left-cloud" id="leftCloud" style="top: 70px; left: 100px;">
+                    Ma'am, what exactly are Fundamental Duties?
+                  </div>
+                  <div class="conversation-cloud right-cloud" id="rightCloud" style="top: 30px; left: 500px; display: none;">
+                    <!-- Initially hidden -->
+                  </div>
+                <img src="/Images/play-2.jpg" class="img-fluid" alt="Role Play Image" />
+      
+                <!-- Two Conversation Clouds -->
+                
+      
+                <!-- Navigation Buttons -->
+                <div class="d-flex justify-content-between mt-5">
+                 <button type="button" class="btn btn-light" style="font-size: 38px; color: #2E7E05; background-color: #D9D9D9;" onclick="prevMessage()">Prev</button>
+                 <button type="button" class="btn btn-light" style="font-size: 38px; color: #2E7E05; background-color: #D9D9D9;" onclick="nextMessage()">Next</button>
+                </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Logic to Update Conversation -->
+    <script>
+      const messages = [
+        "Ma'am, what exactly are Fundamental Duties?",
+        "They are moral obligations placed upon every citizen of India. They are meant to inspire and guide us towards a better nation.",
+        "Ma'am, can you please give an example of a Fundamental Duty?",
+        "Certainly! One of the most important Fundamental Duties is to respect the Constitution, the national flag, and the national anthem. It's a way to show our patriotism and unity.",
+        "But why are these duties important?",
+        "Fundamental Duties help to build a sense of national identity and unity. They also promote social responsibility and civic engagement. By fulfilling these duties, we contribute to the overall well-being of our country.",
+        "So, are there any other Fundamental Duties that we should know about?",
+        "Yes, there are several others. For example, it's our duty to protect the environment and natural resources. This includes conserving wildlife and preventing pollution.",
+        "That's a great point. Ma'am, I also heard about the duty to uphold the values of a democratic society. What does that mean?",
+        "It means respecting the rights of others, participating in the democratic process, and upholding the rule of law.",
+        "I see. So, the Fundamental Duties are basically a set of guidelines for how we should behave as citizens.",
+        "Exactly. They are a moral compass that helps us to lead responsible and fulfilling lives.",
+        "Thank you for explaining the Fundamental Duties so clearly. I now understand their importance.",
+        "You are welcome!!"
+      ];
+
+      let currentMessageIndex = 0;
+
+      function nextMessage() {
+        if (currentMessageIndex < messages.length - 1) {
+          currentMessageIndex++;
+          displayMessage();
+        }
+      }
+
+      function prevMessage() {
+        if (currentMessageIndex > 0) {
+          currentMessageIndex--;
+          displayMessage();
+        }
+      }
+
+      function displayMessage() {
+        const leftCloud = document.getElementById('leftCloud');
+        const rightCloud = document.getElementById('rightCloud');
+
+        if (currentMessageIndex % 2 === 0) {
+          leftCloud.style.display = 'inline-block';
+          rightCloud.style.display = 'none';
+          leftCloud.innerHTML = messages[currentMessageIndex];
+        } else {
+          rightCloud.style.display = 'inline-block';
+          leftCloud.style.display = 'none';
+          rightCloud.innerHTML = messages[currentMessageIndex];
+        }
+      }
+    </script>
+
+  </body>
+</html>
