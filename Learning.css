@@ -1,0 +1,17 @@
+#cardContainer {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+  }
+  
+  .col {
+    flex: 0 0 33.33%; /* Show only 3 cards at a time */
+  }
+  
+  button {
+    z-index: 1;
+  }
+
+.card-img-top {
+    max-width:auto;
+}
