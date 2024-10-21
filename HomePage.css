@@ -1,0 +1,16 @@
+/* Navbar */
+.navbar {
+    background-color: #4A90E2; /* Sky Blue */
+    border-bottom: 5px solid #50C878; /* Emerald Green border */
+    padding-top: 1%; 
+    padding-bottom: 1%;
+  }
+  
+  .nav-link {
+    color: rgb(73, 200, 255) !important;
+    font-size: 1.3rem;
+  }
+  
+  .nav-link:hover {
+    color: #FFB800 !important; /* Sunset Yellow on hover */
+  }

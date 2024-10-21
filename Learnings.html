@@ -10,86 +10,291 @@
   
   <body>
 
-    <nav class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: #8E8EFA;">
-        <div class="container-fluid">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item" >
-                <a class="nav-link active" aria-current="page" href="/HomePage.html">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Games</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/Learnings.html">Learnings</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Samvidhan Search</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link " aria-disabled="true">About Us</a>
-              </li>
-            </ul>
-          </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #8E8EFA;">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Nagrik Samvidhan</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/HomePage.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Games</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/Learnings.html">Learnings</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Samvidhan Search</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Leader Board</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About Us</a>
+            </li>
+          </ul>
         </div>
-      </nav>
+      </div>
+    </nav>
       
-    <div style="margin: 6%;">
+    <div style="margin: 1%;">
       <!--Constituion Learning-->
       <h3>Constituion Learning</h3>
 
-    <div class="container-fluid card-container" style="margin: 6%;">
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
-            <div class="col-1" style="width: 18rem;">
-                <div class="card-body">
-                  <h5 class="card-title">Special title treatment</h5>
-                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
+      <div class="container-fluid card-container" style="margin: 1%;">
+        <!-- Card 1 -->
+        <div class="card w-75" style="margin-bottom: 3%;">
+          <div class="card-body">
+            <h5 class="card-title">Preamble</h5>
+            <p class="card-text">The Constitution has a preamble, which sets out the objectives and
+              principles of the Constitution.Preface of the Indian Constitution .</p>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#preambleModal">
+              Show More
+            </button>
           </div>
+        </div>
       
-          <div class="col-4">
-              <div class="card-body">
-                <h5 class="card-title">Special title treatment</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
+        <!-- Card 2 -->
+        <div class="card w-75" style="margin-bottom: 3%;">
+          <div class="card-body">
+            <h5 class="card-title">Fundamental Rights</h5>
+            <p class="card-text">Fundamental rights of the Indian constitution are the basic rights provided by
+              the constitution of India to its citizens. These rights are essential for the
+              development of the personality of every individual. They are also needed to
+              preserve human dignity.</p>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#rightsModal">
+              Show More
+            </button>
+          </div>
+        </div>
+      
+        <!-- Card 3 -->
+        <div class="card w-75" style="margin-bottom: 3%;">
+          <div class="card-body">
+            <h5 class="card-title">Fundamental Duties</h5>
+            <p class="card-text">Fundamental Duties are the moral responsibilities of the citizens of India to
+              help promote a patriotic spirit and to uphold the unity of our country.</p>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#dutiesModal">
+              Show More
+            </button>
+          </div>
+        </div>
+      
+        <!-- Card 4 -->
+        <div class="card w-75">
+          <div class="card-body">
+            <h5 class="card-title">Directive Principle</h5>
+            <p class="card-text">The DPSP are guidelines for the government to follow in making laws and policies.
+              They are non-justiciable, meaning they are not enforceable by the courts.</p>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#directiveModal">
+              Show More
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Modals -->
+      
+      <!-- Modal for Preamble -->
+      <div class="modal fade" id="preambleModal" tabindex="-1" aria-labelledby="preambleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="preambleModalLabel">Preamble</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-          </div>
-      
-          <div class="card" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title">Special title treatment</h5>
-              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+            <div class="modal-body">
+                The first constitution to start with a preamble was the American Constitution.
+                The Indian constitution also starts with one. The Preamble is basically the
+                introduction or preface to the constitution. It sums up the essence of the
+                constitution. N A Palkhivala, a constitutional expert, referred to the Preamble
+                as the ‘Identity card of the Constitution’.
+                The Preamble is based on Pandit Nehru’s Objective Resolution that he moved
+                and was adopted by the Constituent Assembly. The Preamble has been
+                amended in 1976 by the 42nd Amendment which added words ‘socialist’,
+                ‘secular’ and ‘integrity’ to it.
+                Ingredients of the Preamble
+                The Preamble gives 4 components:
+                Source of authority of the Constitution: it mentions that the constitution
+                derives its power from the people of India.
+                Nature of the Indian State: it says India is a sovereign, socialist, secular,
+                democratic and republican State.
+                Objectives of the Constitution: it gives the objectives as – justice, liberty,
+                equality and fraternity.
+                Constitution date of adoption: 26th November 1949
             </div>
-          </div>
-      
-          <div class="card" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title">Special title treatment</h5>
-              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             </div>
           </div>
         </div>
-    </div>
+      </div>
+      
+      <!-- Modal for Fundamental Rights -->
+      <div class="modal fade" id="rightsModal" tabindex="-1" aria-labelledby="rightsModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="rightsModalLabel">Fundamental Rights</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              The six fundamental rights of the Indian constitution :-
+1. Right to Equality
+The right to equality is given in the articles 14–18 of the Indian constitution.
+The articles under the right to equality include the following:
+Article 14: Equality before law
+Article 15: Prohibition of discrimination on grounds of religion, race, caste, sex
+or place of birth.
+Article 16: Equality of opportunity in matters of public employment.
+Article 17: Abolition of Untouchability.
+Article 18: Abolition of titles: This article aims to abolish titles such as Rai
+Bahadur, Raj Bahadur, Maharaja, Taluqdar, Zamindar, etc., because using such
+titles does not give equal status for all.
+2. Right to freedom
+The right to freedom is given in the articles 19–22 of the Indian constitution.
+Article 19: Protection of certain rights regarding freedom of speech, etc.
+Article 20: Protection in respect of conviction for offences.
+Article 21: Protection of life and personal liberty.
+Article 21-A: Right to Education
+Article 22: Protection Against Arrest and Detention in certain cases
+3. Right against Exploitation
+The right to freedom is given in the articles 23 and 24 of the Indian
+constitution. They are:
+Article 23: Prohibition of traffic in human beings and forced labour:
+Article 24: Prohibition of employment of children in factories, etc.:
+4. Right to freedom of Religion
+The right to freedom is given in the articles 25 – 28 of the Indian constitution.
+Article 25: Freedom of conscience and free profession, practice and
+propagation of religion
+Article 26: Freedom to manage religious affairs
+Article 27: Freedom as to the payment of taxes for promotion of any particular
+religion
+Article 28: Freedom as to attendance at religious instruction or religious
+worship in certain educational institutions
+5. Cultural and Educational Rights
+The right to freedom is given in the articles 29 and 30 of the Indian
+constitution.
+Article 29: Protection of interests of minorities:
+Article 30: Right of minorities to establish and administer educational
+institutions:
+6. Right to constitutional Remedies
+The right to Constitutional Remedies gives the citizens the right to approach
+the Supreme Court or the High Court to implement the fundamental rights. The
+Courts can issue orders to the government to implement the rights. The right
+to constitutional remedies is given by articles 32-35 of the constitution.
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Modal for Fundamental Duties -->
+      <div class="modal fade" id="dutiesModal" tabindex="-1" aria-labelledby="dutiesModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="dutiesModalLabel">Fundamental Duties</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Fundamental Duties are the moral responsibilities of the citizens of India to
+                help promote a patriotic spirit and to uphold the unity of our country.
+                The fundamental duties were incorporated under Part IV-A of the
+                Constitution by The Constitution (42nd Amendment) Act, 1976.
+                ● Article 51(A) of the constitution describes 11 fundamental duties.
+                It states that it shall be the duty of every Indian citizen:
+                Fundamental Duties are an inseparable part of fundamental rights. The
+                importance of these are that 
+                they remind Indian Citizens of their duty towards their society, fellow
+                citizens and the nation.
+                They warn also citizens against anti-national and anti-social activities.
+                They inspire citizens & promote a sense of discipline and commitment
+                among them.
+                They help the courts in examining and determining the constitutional validity
+                of a law
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Modal for Directive Principles -->
+      <div class="modal fade" id="directiveModal" tabindex="-1" aria-labelledby="directiveModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="directiveModalLabel">Directive Principles</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              The DPSP are guidelines for the government to follow in making laws and policies.
+They are non-justiciable, meaning they are not enforceable by the courts.
+They aim to promote social and economic welfare, and to create a just and
+equitable society.
+<p> Article 36: Definition of DPSP
+  Article 37: Application of DPSP
+  Article 38: State to secure a social order for the promotion of welfare of the people
+  Article 39: Certain principles of policy to be followed by the State
+  Article 39A: Equal justice and free legal aid
+  Article 40: Organization of village panchayats
+  Article 41: Right to work, to education, and to public assistance in certain cases
+  Article 42: Provision for just and humane conditions of work and maternity relief
+  Article 43: Living wage, etc., for workers
+  Article 43A: Participation of workers in management of industries
+  Article 44: Uniform civil code for the citizens
+  Article 45: Provision for early childhood care and education to children below the
+  age of six years
+  Article 46: Promotion of educational and economic interests of Scheduled Castes,
+  Scheduled Tribes, and other weaker sections
+  Article 47: Duty of the State to raise the level of nutrition and the standard of living
+  and to improve public health
+  Article 48: Organization of agriculture and animal husbandry
+  Article 48A: Protection and improvement of environment and safeguarding of
+  forests and wild life
+  Article 49: Protection of monuments and places and objects of national importance
+  Article 50: Separation of judiciary from executive
+  Article 51: Promotion of international peace and security</p>
+          <p> Key aspects of DPSP are :-
+            Social and economic welfare,
+            Justice and equality,
+            Labor and employment,
+            Education and healthcare,
+            Environment and conservation,
+            Cultural and religious protection,
+            International cooperation,
+            Importance of DPSP,
+            Provides guidelines for government policy-making,
+            Reflects the aspirations and values of the Constitution,
+            Helps to create a just and equitable society and 
+            Non-justiciable, but influences judicial decisions</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
       
       
  
       
 
        <!--Role Plays-->
-       <h3 style="margin: 6%;">Role Plays</h3>
-    <div class="container-fluid card-container" style="margin: 6%;">
+       <h3 style="margin: 1%;">Role Plays</h3>
+    <div class="container-fluid card-container" style="margin: 1%;">
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
           <div class="col">
             <a href="/Role_plays/Play-1/page_1.html">
-              <div class="card text-center mb-3">
+              <div class="card text-center mb-4">
                 <img src="/Images/RP-cb.jpg" class="card-img-top" alt="Constitutional Brief">
               </a>
               <div class="card-body">
@@ -100,7 +305,7 @@
       
           <div class="col">
             <a href="/Role_plays/Play-1/Play-2/p-1.html">
-              <div class="card text-center mb-3">
+              <div class="card text-center mb-4">
                 <img src="/Images/RP-fr.jpg" class="card-img-top" alt="Fundamental Rights">
               </a>
               <div class="card-body">
@@ -111,7 +316,7 @@
       
           <div class="col">
             <a href="/Role_plays/Play-3/fd-1.html">
-              <div class="card text-center mb-3">
+              <div class="card text-center mb-4">
                 <img src="/Images/RP-fd.jpg" class="card-img-top" alt="Fundamental Duties">
               </a>
               <div class="card-body">
@@ -122,7 +327,7 @@
       
           <div class="col">
             <a href="/Role_plays/Play-4/pg-1.html">
-              <div class="card text-center mb-3">
+              <div class="card text-center mb-4">
                 <img src="/Images/RP-dp&sp.jpg" class="card-img-top" alt="Directive Principles and State Policy">
               </a>
               <div class="card-body">
@@ -137,30 +342,27 @@
 
 
         <!--Constituion Learning-->
-      <h3 style="margin: 6%;">Quizes</h3>
+      <h3 style="margin: 1%;">Quizes</h3>
 
-    <div class="row row-cols-1 row-cols-md-3 g-4" style="margin: 6%;">
+    <div class="row row-cols-1 row-cols-md-4 g-4" style="margin: 1%;">
         <div class="col">
           <div class="card text-center mb-3">
-            <img src="/Images/Sn&La.svg" class="card-img-top" alt="...">
             <div class="card-body">
-              <h5 class="card-title">Snake and Ladder</h5>
+              <h5 class="card-title">Quiz 1</h5>
             </div>
           </div>
         </div>
         <div class="col">
           <div class="card text-center mb-3">
-            <img src="/Images/Spin the Wheel.svg" class="card-img-top" alt="...">
             <div class="card-body">
-              <h5 class="card-title">Spin the Wheel</h5>
+              <h5 class="card-title">Quiz 2</h5>
             </div>
           </div>
         </div>
         <div class="col">
           <div class="card text-center mb-3">
-            <img src="/Images/Quiz.svg" class="card-img-top" alt="...">
             <div class="card-body">
-              <h5 class="card-title">Quizes</h5>
+              <h5 class="card-title">Quiz 3</h5>
             </div>
           </div>
         </div>

@@ -1,17 +1,152 @@
-#cardContainer {
-    display: flex;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-  }
-  
-  .col {
-    flex: 0 0 33.33%; /* Show only 3 cards at a time */
-  }
-  
-  button {
-    z-index: 1;
-  }
-
-.card-img-top {
-    max-width:auto;
+/* Global Styles */
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #f1f1f1;
+  color: #333333;
+  background-image: url('https://www.transparenttextures.com/patterns/concrete-wall.png');
+  background-size: cover;
+  background-attachment: fixed;
 }
+
+/* Navbar */
+.navbar {
+  background-color: #4A90E2; /* Sky Blue */
+  border-bottom: 5px solid #50C878; /* Emerald Green border */
+  padding-top: 1%; 
+  padding-bottom: 1%;
+}
+
+.nav-link {
+  color: rgb(73, 200, 255) !important;
+  font-size: 1.3rem;
+}
+
+.nav-link:hover {
+  color: #FFB800 !important; /* Sunset Yellow on hover */
+}
+
+/* Headings */
+h2, h3 {
+  color: #4A90E2; /* Sky Blue */
+  font-weight: bold;
+}
+
+/* Button Styles */
+.btn-primary {
+  background-color: #50C878; /* Emerald Green */
+  border: 2px solid #4A90E2; /* Sky Blue border */
+  border-radius: 8px;
+}
+
+.btn-primary:hover {
+  background-color: #45A567; /* Slightly darker Emerald Green */
+}
+
+/* Card Styles */
+.card {
+  background-color: #ffffff;
+  border: 2px solid #FFB800; /* Sunset Yellow borders */
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card-title {
+  color: #4A90E2; /* Sky Blue for card titles */
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.card-container {
+  background-color:  #FFF8E1;
+  border: 2px solid #4A90E2;
+  max-width: 1450px;
+  border-radius: 10px;
+  padding: 15px;
+}
+
+/* Scroll Buttons for Horizontal Scrolling (if necessary) */
+.scroll-left, .scroll-right {
+  background-color: #4A90E2;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.scroll-left {
+  left: 10px;
+}
+
+.scroll-right {
+  right: 10px;
+}
+
+/* Modal Styles */
+.modal-content {
+  background-color: #EFEFEF; /* Off White */
+  border: 2px solid #50C878; /* Emerald Green */
+}
+
+.modal-header {
+  background-color: #FFB800; /* Sunset Yellow */
+  color: #333333;
+  border-bottom: 2px solid #4A90E2; /* Sky Blue */
+}
+
+/* Quiz Section */
+.card-title {
+  color: #50C878; /* Emerald Green for quiz card titles */
+  font-size: 1.3rem;
+}
+
+.card.text-center.mb-3 {
+  border: 2px solid #4A90E2; /* Sky Blue border for quiz cards */
+}
+
+.card.text-center.mb-3:hover {
+  background-color: #F1F1F1; /* Light background on hover */
+}
+
+/* Footer Styles (if necessary) */
+footer {
+  background-color: #333333;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  margin-top: 50px;
+}
+
+/* Role Play Section */
+.role-play-container {
+  background: linear-gradient(to bottom right, #F1F1F1, #EFEFEF);
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 40px;
+}
+
+.role-play-container h3 {
+  color: #4A90E2;
+}
+
+.role-play-container .card {
+  border: 2px solid #50C878; /* Border for role-play cards */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  transition: box-shadow 0.3s ease;
+}
+
+.role-play-container .card:hover {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  border-color: #99178a;
+}
+
