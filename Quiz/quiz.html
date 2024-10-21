@@ -8,22 +8,27 @@
   <meta charset="utf-8">
 </head>
 <body>
-  <a href="https://github.com/8values/8values.github.io" class="github-corner" aria-label="View source on Github">
-    <svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
-      <!-- SVG Code -->
-    </svg>
-  </a>
-  <style>
-    body {
-      background-color: rgb(243, 224, 137);
-    }
-    h2 {
-      font-size: 3rem;
-      text-align: center;
-    }
+  
   </style>
   <h2>Nagrik aur Samvidhan</h2>
-  <h2>Quiz Time</h2>
-  <button class="button" onclick="location.href='instructions.html';" style="font-size:15pt;">Click here to start!</button>
+  <hr>
+  <div class="question-box">
+    <h2 id="question-number">Question </h2>
+    <p class="question" id="question-text">Loading.....</p>
+</div>
+
+<!-- Options Box -->
+<div class="options-box" id="options">
+    <label><input type="radio" name="option" value="A"> Option A: Paris</label>
+    <label><input type="radio" name="option" value="B"> Option B: Berlin</label>
+    <label><input type="radio" name="option" value="C"> Option C: Madrid</label>
+    <label><input type="radio" name="option" value="D"> Option D: Rome</label>
+</div>
+
+  <button id="nextButton" onclick="nextQuestion()">Next</button>
+
+  <!-- Script for handling quiz logic -->
+  <script type="application/javascript" src="questions.js"></script>
+  <script type="application/javascript" src="script.js"></script>
 </body>
 </html>
