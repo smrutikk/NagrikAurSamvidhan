@@ -1,0 +1,35 @@
+/* General styles */
+body {
+    background-color: #1a1a1a;
+  }
+  
+  .max-w-400 {
+    max-width: 400px;
+  }
+  
+  .card {
+    border-radius: 10px;
+  }
+  
+  .form-text {
+    font-size: 0.875rem;
+  }
+  
+  /* For toggling password visibility */
+  #toggleLoginPassword {
+    cursor: pointer;
+  }
+  
+  /* Custom transitions */
+  .card {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  .d-none {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  .d-block {
+    opacity: 1;
+    transform: scale(1);
+  }
+  
