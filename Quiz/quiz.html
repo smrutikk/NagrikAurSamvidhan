@@ -5,30 +5,40 @@
   <link href='style.css' rel='stylesheet' type='text/css'>
   <title>Quiz</title>
   <link rel="icon" type="x-icon" href="icon.png">
+  
   <meta charset="utf-8">
 </head>
 <body>
-  
-  </style>
   <h2>Nagrik aur Samvidhan</h2>
   <hr>
+  
   <div class="question-box">
-    <h2 id="question-number">Question </h2>
+    <h2 id="question-number">Question</h2>
     <p class="question" id="question-text">Loading.....</p>
-</div>
+  </div>
 
-<!-- Options Box -->
-<div class="options-box" id="options">
-    <label><input type="radio" name="option" value="A"> Option A: Paris</label>
-    <label><input type="radio" name="option" value="B"> Option B: Berlin</label>
-    <label><input type="radio" name="option" value="C"> Option C: Madrid</label>
-    <label><input type="radio" name="option" value="D"> Option D: Rome</label>
-</div>
-
-  <button id="nextButton" onclick="nextQuestion()">Next</button>
-
-  <!-- Script for handling quiz logic -->
-  <script type="application/javascript" src="questions.js"></script>
-  <script type="application/javascript" src="script.js"></script>
+  <!-- Options Box -->
+  <div class="options-box" id="options"></div>
+ 
+  <div style="display: flex; justify-content: flex-end; margin-top: 20px;">
+    <button 
+      id="nextButton" 
+      style="
+        padding: 10px 20px; 
+        font-size: 16px; 
+        color: white; 
+        background-color: #007bff; 
+        border: none; 
+        border-radius: 4px; 
+        cursor: pointer;" onclick="nextQuestion()">
+      Next
+    </button>
+  </div>
+  
+  
+ 
+  <!-- Include scripts -->
+  <script src="questions.js" defer></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
