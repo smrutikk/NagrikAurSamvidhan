@@ -1,0 +1,210 @@
+/* Body and basic page styles */
+body {
+    font-family: Georgia,Serif;
+    text-align: center;
+    background-color: #9898d0;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    margin: 20px;
+    font-size: 32px;
+    color: #333;
+}
+
+/* Game message styles */
+#message {
+    margin-top: 20px; 
+    font-size: 24px;
+    font-weight: bold;
+    color: #4CAF50;
+}
+
+#timer, #score {
+    margin: 10px;
+    font-size: 20px;
+    color: #333;
+}
+
+/* Swap Message Styles */
+#swapMessage {
+    font-size: 18px;
+    margin: 10px;
+    color: rgb(28, 19, 211);
+    display: none;
+}
+
+/* Rules section styling */
+.rules {
+    margin: 20px auto;
+    max-width: 800px;
+    text-align: left;
+    font-size: 18px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Game board styling */
+.game-board {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; 
+    align-items: center;
+    gap: 20px; 
+    padding: 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+/* Card styles */
+.card {
+    width: 120px;
+    height: 180px;
+    perspective: 1000px;
+    position: relative;
+    margin: 15px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out; 
+}
+
+.card .front, .card .back {
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Front of the card - default state */
+.card .front {
+    background-color: #f5f5f5;
+    color: #333;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.card .back {
+    background-color: #fff;
+    transform: rotateY(180deg);
+}
+
+.card.flip .front {
+    transform: rotateY(180deg);
+}
+
+.card.flip .back {
+    transform: rotateY(0deg);
+}
+
+/* Image on the back of the card */
+.card img {
+    width: 90%;
+    height: 90%;
+    object-fit: cover; /* Ensures images fill the card */
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+/* Hover effects for cards */
+.card:hover {
+    transform: scale(1.1); /* Slight zoom effect on hover */
+}
+
+.card.flip {
+    background-color: #fff;
+    color: #333;
+}
+
+.card.match {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.card.no-match {
+    background-color: #f44336;
+}
+
+.card.zoom-out {
+    transform: scale(0.7);
+    transition: transform 2s;
+}
+
+.card.empty {
+    background-color: #ddd;
+    color: #FFC107; /* Dark Yellow */
+}
+
+.card.empty.flip {
+    background-color: #fff;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .game-board {
+        flex-direction: column; /* Stack cards vertically on smaller screens */
+        align-items: center;
+    }
+
+    .card {
+        width: 100px;
+        height: 150px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    #message {
+        font-size: 20px;
+    }
+
+    #timer, #score {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        width: 80px;
+        height: 120px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    #message {
+        font-size: 18px;
+    }
+
+    #timer, #score {
+        font-size: 16px;
+    }
+    
+}
+.button {
+    background-color: #aa0404;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }

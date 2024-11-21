@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #FF9933 0%, #FFFFFF 50%, #138808 100%);
+    color: #333;
+    overflow: hidden;
+}
+
+.game-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    padding: 40px;
+    max-width: 800px;
+    width: 90%;
+    text-align: center;
+    animation: fadeIn 0.5s ease-out;
+}
+
+h1 {
+    color: #000080;
+    font-size: 36px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.progress-bar {
+    width: 100%;
+    height: 10px;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.progress {
+    width: 0%;
+    height: 100%;
+    background-color: #138808;
+    transition: width 0.5s ease;
+}
+
+.score, .streak {
+    font-size: 18px;
+    color: #000080;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.question-container {
+    background-color: #f0f4f8;
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+    animation: slideIn 0.5s ease;
+}
+
+.question {
+    font-size: 22px;
+    color: #000080;
+    margin-bottom: 25px;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.options-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.option {
+    background-color: #ffffff;
+    border: 2px solid #000080;
+    padding: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 16px;
+    font-weight: 600;
+    color: #000080;
+}
+
+.option:hover {
+    background-color: #e6eeff;
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.option.correct {
+    background-color: #138808;
+    color: white;
+    border-color: #0f6606;
+}
+
+.option.wrong {
+    background-color: #FF9933;
+    color: white;
+    border-color: #e68a00;
+}
+
+.option.disabled {
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+#nextQuestion, #playButton, #restartGame {
+    background-color: #000080;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    margin-top: 20px;
+    display: inline-block;
+}
+
+#nextQuestion:hover, #playButton:hover, #restartGame:hover {
+    background-color: #000066;
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.celebration {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    opacity: 0;
+    animation: confetti-fall 3s ease-in-out infinite;
+}
+
+.game-over {
+    display: none;
+    text-align: center;
+}
+
+.game-over h2 {
+    font-size: 32px;
+    color: #FF9933;
+    margin-bottom: 20px;
+}
+
+.game-over p {
+    font-size: 24px;
+    color: #000080;
+    margin-bottom: 30px;
+}
+
+@keyframes confetti-fall {
+    0% {
+        transform: translateY(-100%) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .game-container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    .question {
+        font-size: 20px;
+    }
+
+    .option {
+        font-size: 14px;
+    }
+
+    #nextQuestion, #playButton, #restartGame {
+        font-size: 16px;
+        padding: 12px 24px;
+    }
+
+    .score, .streak {
+        font-size: 16px; /* Adjusted for better readability */
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 24px;
+    }
+
+    .question {
+        font-size: 18px;
+    }
+
+    .option {
+        padding: 10px;
+    }
+
+    #nextQuestion, #playButton, #restartGame {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+
+    .score, .streak {
+        font-size: 14px; /* Further adjustment for small screens */
+    }
+}
