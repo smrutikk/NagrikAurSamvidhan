@@ -8,7 +8,7 @@ import { collection, addDoc, serverTimestamp } from "https://www.gstatic.com/fir
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
+export const firebaseConfig = {
   apiKey: "AIzaSyBdrbx4BPPzVtBqn51EOzeN6yNzSP-byUw",
   authDomain: "nagrikaursamvidhan.firebaseapp.com",
   projectId: "nagrikaursamvidhan",
