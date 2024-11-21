@@ -6,6 +6,10 @@ const duties = [
     { name: "25.jpg", description: "religion.jpg" }
 ];
 
+import { db, auth } from '../config.js';
+
+console.log(db);
+
 let cards = [];
 let flippedCards = [];
 let matchedCards = 0;
@@ -31,7 +35,7 @@ function initGame() {
         cardElement.dataset.id = index;
         cardElement.dataset.type = card.type;
         cardElement.dataset.value = card.id;
-        // Set card initially with a placeholder or blank content
+
         const front = document.createElement('div');
         front.classList.add('front');
         front.innerText = 'Flip Me';
@@ -73,7 +77,6 @@ function flipCard() {
     if (card.classList.contains('flip')) return;
 
     card.classList.add('flip');
-    document.getElementById('flipSound').play();
     flippedCards.push(card);
 
     if (flippedCards.length === 2) {
@@ -87,20 +90,21 @@ function checkMatch() {
     if (card1.dataset.value === card2.dataset.value && card1.dataset.type !== card2.dataset.type) {
         card1.classList.add('match');
         card2.classList.add('match');
-        document.getElementById('matchSound').play();
         matchedCards += 2;
         flippedCards = [];
         updateScore();
         if (matchedCards === cards.length) {
             clearInterval(interval);
             clearInterval(swapInterval);
-            document.getElementById('message').innerText = `Congratulations! You matched all the cards in ${timer} seconds and scored ${score} points!`;
-            playSound();
+
+            document.getElementById('message').innerText =
+                `Congratulations! You matched all the cards in ${timer} seconds and scored ${score} points!`;
+
+            saveScore(score, timer);
         }
     } else {
         card1.classList.add('no-match');
         card2.classList.add('no-match');
-        document.getElementById('noMatchSound').play();
         setTimeout(() => {
             card1.classList.remove('flip', 'no-match');
             card2.classList.remove('flip', 'no-match');
@@ -108,6 +112,38 @@ function checkMatch() {
         }, 1000);
     }
 }
+auth.onAuthStateChanged((user) => {
+    if (user) {
+        console.log(`User signed in: ${user.email}`);
+    } else {
+        alert("Please log in to play the game.");
+        // Redirect to login page if necessary
+    }
+});
+
+async function saveScore(score, timer) {
+    try {
+        const user = auth.currentUser;
+        if (!user) {
+            throw new Error("No user is signed in.");
+        }
+
+        const userId = user.uid;
+        const userDocRef = doc(db, "users", userId);
+
+        await updateDoc(userDocRef, {
+            gameScore: score,
+            gameTime: timer,
+            lastPlayed: new Date().toISOString()
+        });
+
+        console.log("Score successfully saved!");
+    } catch (error) {
+        console.error("Error saving score:", error);
+        alert("Failed to save score. Please try again.");
+    }
+}
+
 
 function startTimer() {
     interval = setInterval(() => {
@@ -117,8 +153,8 @@ function startTimer() {
 }
 
 function updateScore() {
-    const timeFactor = 100 - timer; // The quicker the player, the higher the score
-    score += Math.max(10, timeFactor); // Minimum score per match is 10
+    const timeFactor = 100 - timer;
+    score += Math.max(10, timeFactor);
     document.getElementById('score').innerText = `Score: ${score}`;
 }
 
@@ -137,7 +173,6 @@ function swapCards() {
 
     document.getElementById('swapMessage').innerText = "Both cards getting swapped";
     document.getElementById('swapMessage').style.display = "block";
-    document.getElementById('swapSound').play();
 
     randomCard1.classList.add('zoom-out');
     randomCard2.classList.add('zoom-out');
@@ -161,11 +196,6 @@ function swapCards() {
         randomCard2.classList.remove('zoom-out');
         document.getElementById('swapMessage').style.display = "none";
     }, 2000);
-}
-
-function playSound() {
-    const audio = new Audio('congratulations.mp3');
-    audio.play();
 }
 
 initGame();
