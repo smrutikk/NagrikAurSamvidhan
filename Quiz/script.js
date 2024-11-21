@@ -1,6 +1,12 @@
+import { db, collection, addDoc, serverTimestamp } from "../Auth/Config.js";
+import { questions } from "./questions.js";
+
+console.log(db)
+
 let currentQuestionIndex = 0;
 let score = 0;
-let isSampleQuiz = true; // Flag to track which quiz is running
+let isSampleQuiz = true;
+
 const sampleQuestions = [
   {
     question: "What is the capital of France?",
@@ -24,37 +30,34 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function loadQuestion() {
-  const currentQuestions = isSampleQuiz ? sampleQuestions : questions; // Use actual questions if sample quiz is done
+  const currentQuestions = isSampleQuiz ? sampleQuestions : questions;
   const currentQuestion = currentQuestions[currentQuestionIndex];
-  const optionsContainer = document.getElementById('options');
-  const questionElement = document.getElementById('question-text');
+  const optionsContainer = document.getElementById("options");
+  const questionElement = document.getElementById("question-text");
 
   // Update the question text
   questionElement.innerHTML = currentQuestion.question;
 
-  // Clear any previous options
-  optionsContainer.innerHTML = '';
-
-  // Loop through the options and create radio buttons
-  currentQuestion.options.forEach(option => {
+  // Clear previous options
+  optionsContainer.innerHTML = "";
+  currentQuestion.options.forEach((option) => {
     const optionHTML = `
       <div>
         <input type="radio" name="option" value="${option}">
         <label>${option}</label>
-      </div>
-    `;
+      </div>`;
     optionsContainer.innerHTML += optionHTML;
   });
 }
 
 function nextQuestion() {
-  const selectedOption = document.querySelector('input[name="option"]:checked');
+  const selectedOption = document.querySelector("input[name='option']:checked");
   if (!selectedOption) {
-    alert('Please select an option!');
+    alert("Please select an option!");
     return;
   }
 
-  const currentQuestions = isSampleQuiz ? sampleQuestions : questions; // Use actual questions if sample quiz is done
+  const currentQuestions = isSampleQuiz ? sampleQuestions : questions;
   const answer = selectedOption.value;
 
   if (answer === currentQuestions[currentQuestionIndex].correctAnswer) {
@@ -66,15 +69,37 @@ function nextQuestion() {
   if (currentQuestionIndex < currentQuestions.length) {
     loadQuestion();
   } else if (isSampleQuiz) {
-    // End of sample quiz, switch to actual quiz
     isSampleQuiz = false;
     currentQuestionIndex = 0;
-    alert('Sample quiz completed! Starting the actual quiz now.');
+    alert("Sample quiz completed! Starting the actual quiz now.");
     loadQuestion();
   } else {
-    // End of actual quiz
     document.body.innerHTML = `<h2>Quiz completed! Your score is ${score} out of ${
       sampleQuestions.length + questions.length
     }.</h2>`;
+
+    saveScoreToFirestore(score);
   }
 }
+
+async function saveScoreToFirestore(score, userId = "anonymous") {
+  try {
+    // Ensure the db object is correctly passed
+    const quizScoresCollection = collection(db, "quizScores");
+    console.log(quizScoresCollection); // Check if the collection reference is valid
+
+    // Add document to Firestore collection
+    await addDoc(quizScoresCollection, {
+      score: score,
+      timestamp: serverTimestamp(),
+      userId: userId
+    });
+    console.log("Score saved to Firestore successfully!");
+  } catch (error) {
+    console.error("Error saving score to Firestore: ", error);
+  }
+}
+
+
+// Make nextQuestion globally accessible
+window.nextQuestion = nextQuestion;

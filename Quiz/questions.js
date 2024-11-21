@@ -1,4 +1,4 @@
-const questions = [
+export const questions = [
     {
         question: "Which right under the Right to Freedom guarantees the protection of an individual against arbitrary arrest and detention?",
         options: [
