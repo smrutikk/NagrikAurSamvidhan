@@ -223,7 +223,7 @@ async function saveScoreToFirebase(score) {
         }
     } catch (error) {
         console.error("Error saving score:", error);
-        alert("Failed to save score. Please try again.");
+        
     }
 }
 
