@@ -21,61 +21,60 @@ onAuthStateChanged(auth, async (user) => {
 
 
 // Fetch and Populate Dashboard Data
-async function populateDashboard() {
-    try {
-      // Check if the user is authenticated and the userId is valid
-      const userId = "exampleUserId"; // Ensure this matches the logged-in user's ID if dynamic
-      console.log("Fetching data for user ID:", userId);
-  
-      // Fetch user data from Firestore
-      const userDoc = await getDoc(doc(db, "users", userId));
-      if (userDoc.exists()) {
-        const userData = userDoc.data();
-        console.log("User data retrieved:", userData);
-  
-        // Populate username
-        document.getElementById("userName").textContent = userData.name || "User";
-  
-        // Populate progress tracker
-        const progress = userData.progress || 0;
-        const progressBar = document.getElementById("progressBar");
-        progressBar.style.width = `${progress}%`;
-        progressBar.setAttribute("aria-valuenow", progress);
-        progressBar.textContent = `${progress}%`;
-  
-        // Populate achievements
-        const achievementsContainer = document.getElementById("achievements");
-        (userData.achievements || []).forEach(achievement => {
-          const badge = document.createElement("span");
-          badge.className = "badge";
-          badge.textContent = achievement;
-          achievementsContainer.appendChild(badge);
-        });
-  
-        // Populate quiz results
-        const quizResultsContainer = document.getElementById("quizResults");
-        (userData.quizResults || []).forEach(result => {
-          const listItem = document.createElement("li");
-          listItem.className = "list-group-item";
-          listItem.textContent = `Quiz: ${result.quizName}, Score: ${result.score}`;
-          quizResultsContainer.appendChild(listItem);
-        });
-  
-        // Populate recommendations
-        const recommendationsContainer = document.getElementById("recommendations");
-        (userData.recommendations || []).forEach(recommendation => {
-          const listItem = document.createElement("li");
-          listItem.className = "list-group-item";
-          listItem.textContent = recommendation;
-          recommendationsContainer.appendChild(listItem);
-        });
-      } else {
-        console.error("No user data found for the given ID.");
-      }
-    } catch (error) {
-      console.error("Error fetching user data:", error);
+// Fetch and Populate Dashboard Data
+async function populateDashboard(userId) {
+  try {
+    console.log("Fetching data for user ID:", userId);
+
+    // Fetch user data from Firestore
+    const userDoc = await getDoc(doc(db, "users", userId));
+    if (userDoc.exists()) {
+      const userData = userDoc.data();
+      console.log("User data retrieved:", userData);
+
+      // Populate username
+      document.getElementById("userName").textContent = userData.name || "User";
+
+      // Calculate total score and progress
+      const game1Score = userData.game_1 || 0;
+      const game2Score = userData.game_2 || 0;
+      const totalScore = game1Score + game2Score;
+
+      // Define maximum score for progress calculation
+      const maxScore = 100; // Adjust this based on your scoring system
+      const progress = Math.min((totalScore / maxScore) * 100, 100);
+
+      // Update progress tracker
+      const progressBar = document.getElementById("progressBar");
+      progressBar.style.width = `${progress}%`;
+      progressBar.setAttribute("aria-valuenow", progress.toFixed(0));
+      progressBar.textContent = `${progress.toFixed(0)}%`;
+
+      // Populate achievements
+      const achievementsContainer = document.getElementById("achievements");
+      achievementsContainer.innerHTML = ""; // Clear previous data
+      (userData.achievements || []).forEach(achievement => {
+        const badge = document.createElement("span");
+        badge.className = "badge";
+        badge.textContent = achievement;
+        achievementsContainer.appendChild(badge);
+      });
+
+      // Display game scores (optional)
+      const gameScoresContainer = document.getElementById("gameScores");
+      gameScoresContainer.innerHTML = `
+        <li>Game 1: ${game1Score}</li>
+        <li>Game 2: ${game2Score}</li>
+      `;
+
+    } else {
+      console.error("No user data found for the given ID.");
     }
+  } catch (error) {
+    console.error("Error fetching user data:", error);
   }
+}
+
   
   // Call the function to populate the dashboard
   populateDashboard();
