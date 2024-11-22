@@ -101,6 +101,8 @@ const questions = [
     }
 ];
 
+import { db, auth } from '../config.js';
+
 let currentQuestionIndex = -1;
 let streak = 0;
 let score = 0;
@@ -198,6 +200,31 @@ function endGame() {
     nextQuestionButton.style.display = 'none';
     gameOverElement.style.display = 'block';
     finalScoreElement.textContent = score;
+
+    // Save the score to Firestore after the game ends
+    saveScoreToFirebase(score);
+}
+
+async function saveScoreToFirebase(score) {
+    try {
+        const userId = auth.currentUser?.uid;  // Ensure user is authenticated
+        if (userId) {
+            const userRef = doc(db, "users", userId); // Reference to the user's document
+
+            // Save the final score to Firestore
+            await updateDoc(userRef, {
+                gameScore: score,
+                lastPlayed: new Date().toISOString(), // Optionally track the date/time
+            });
+
+            console.log("Score successfully saved to Firestore!");
+        } else {
+            console.log("User not authenticated. Cannot save score.");
+        }
+    } catch (error) {
+        console.error("Error saving score:", error);
+        alert("Failed to save score. Please try again.");
+    }
 }
 
 function restartGame() {
