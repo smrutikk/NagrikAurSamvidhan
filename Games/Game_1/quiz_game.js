@@ -207,14 +207,14 @@ function endGame() {
 
 async function saveScoreToFirebase(score) {
     try {
-        const userId = auth.currentUser?.uid;  // Ensure user is authenticated
+        const userId = auth.currentUser?.uid;  
         if (userId) {
-            const userRef = doc(db, "users", userId); // Reference to the user's document
+            const userRef = doc(db, "users", userId); 
 
-            // Save the final score to Firestore
+            //  final score to Firestore
             await updateDoc(userRef, {
                 gameScore: score,
-                lastPlayed: new Date().toISOString(), // Optionally track the date/time
+                lastPlayed: new Date().toISOString(), 
             });
 
             console.log("Score successfully saved to Firestore!");
